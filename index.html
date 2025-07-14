@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>ĐIỂM SẮC</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+               
+                <a href="#" class="nav__logo"> <img src="assets/img/favicon.png" alt="" class="nav__logo__img">ĐIỂM SẮC</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Trang chủ</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Họa sỹ</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#discover" class="nav__link">Tranh</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Liên hệ</a>
+                    </li>
+                </ul>
+
+                <div class="nav__dark">
+                    <!-- Theme change button -->
+                    <span class="change-theme-name">Dark mode</span>
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+                </div>
+
+                <i class="ri-close-line nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-function-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home" id="home">
+            <img src="assets/img/homehero.jpg" alt="" class="home__img">
+
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <span class="home__data-subtitle">Phòng tranh</span>
+                    <h1 class="home__data-title">Tranh <br> Sơn Dầu <br>Điểm Sắc</h1>
+                    <!-- <a href="#" class="button">Explore</a> -->
+                </div>
+                <!-- 
+                <div class="home__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                        <i class="ri-facebook-box-fill"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                        <i class="ri-instagram-fill"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                </div> -->
+                <!-- 
+                    <div class="home__info">
+                        <div>
+                            <span class="home__info-title">5 best places to visit</span>
+                            <a href="" class="button button--flex button--link home__info-button">
+                                More <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+
+                        <div class="home__info-overlay">
+                            <img src="assets/img/home2.jpg" alt="" class="home__info-img">
+                        </div>
+                    </div> -->
+            </div>
+        </section>
+
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <div class="about__container container grid">
+                <div class="about__data">
+                    <h2 class="section__title about__title">Lê Tấn Đạt</h2>
+                    <p class="about__description">Lê Tấn Đạt là họa sĩ chuyên bán tranh nghệ thuật đa dạng phong cách,
+                        đồng thời nhận vẽ theo yêu cầu của khách hàng để tạo nên những tác phẩm độc đáo và ý nghĩa. Hãy
+                        để nghệ thuật của Lê Tấn biến không gian của bạn trở nên sống động và mang đậm dấu ấn cá nhân.
+                    </p>
+                    <a href="#contact" class="button">Liên hệ ngay</a>
+                </div>
+
+                <div class="about__img">
+                    <!-- <div class="about__img-overlay">
+                            <img src="assets/img/about1.jpg" alt="" class="about__img-one">
+                        </div> -->
+
+                    <div class="about__img-overlay">
+                        <img src="assets/img/us.png" alt="" class="about__img-two">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== DISCOVER ====================-->
+        <section class="discover section" id="discover">
+            <h2 class="section__title">Khám phá tranh</h2>
+
+            <div class="discover__container container swiper-container">
+                <div class="swiper-wrapper">
+                    <!--==================== DISCOVER 1 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="assets/img/discover1.jpg" alt="" class="discover__img">
+                        <div class="discover__data">
+                            <h2 class="discover__title">Bali</h2>
+                            <span class="discover__description">24 tours available</span>
+                        </div>
+                    </div>
+
+                    <!--==================== DISCOVER 2 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="assets/img/discover2.jpg" alt="" class="discover__img">
+                        <div class="discover__data">
+                            <h2 class="discover__title">Hawaii</h2>
+                            <span class="discover__description">15 tours available</span>
+                        </div>
+                    </div>
+
+                    <!--==================== DISCOVER 3 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="assets/img/discover3.jpg" alt="" class="discover__img">
+                        <div class="discover__data">
+                            <h2 class="discover__title">Hvar</h2>
+                            <span class="discover__description">18 tours available</span>
+                        </div>
+                    </div>
+
+                    <!--==================== DISCOVER 4 ====================-->
+                    <div class="discover__card swiper-slide">
+                        <img src="assets/img/discover4.jpg" alt="" class="discover__img">
+                        <div class="discover__data">
+                            <h2 class="discover__title">Whitehaven</h2>
+                            <span class="discover__description">32 tours available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== EXPERIENCE ====================-->
+        <section class="experience section">
+            <h2 class="section__title">Đặc sắc</h2>
+
+            <div class="experience__container container grid">
+                <div class="experience__img grid">
+                    <div class="experience__overlay">
+                        <img src="assets/img/experience1.jpg" alt="" class="experience__img-one">
+                    </div>
+
+                    <div class="experience__overlay">
+                        <img src="assets/img/experience2.jpg" alt="" class="experience__img-two">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== PLACES ====================-->
+        <section class="place section" id="place">
+            <h2 class="section__title">Tranh ngang</h2>
+
+            <div class="video__container container">
+                <p class="video__description">Mỗi bức tranh là một câu chuyện nhỏ. Biết đâu, bạn sẽ tìm thấy một góc yêu
+                    thương cho chính mình.
+                </p>
+            </div>
+            <div class="place__container container grid">
+                <!--==================== PLACES CARD 1 ====================-->
+                <div class="place__card">
+                    <img src="assets/img/place1.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4,8</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Bali</h3>
+                            <span class="place__subtitle">Indonesia</span>
+                            <span class="place__price">$2499</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PLACES CARD 2 ====================-->
+                <div class="place__card">
+                    <img src="assets/img/place2.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">5,0</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Bora Bora</h3>
+                            <span class="place__subtitle">Polinesia</span>
+                            <span class="place__price">$1599</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PLACES CARD 3 ====================-->
+                <div class="place__card">
+                    <img src="assets/img/place3.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4,9</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Hawaii</h3>
+                            <span class="place__subtitle">EE.UU</span>
+                            <span class="place__price">$3499</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PLACES CARD 4 ====================-->
+                <div class="place__card">
+                    <img src="assets/img/place4.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4,8</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Whitehaven</h3>
+                            <span class="place__subtitle">Australia</span>
+                            <span class="place__price">$2499</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PLACES CARD 5 ====================-->
+                <div class="place__card">
+                    <img src="assets/img/place5.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4,8</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Hvar</h3>
+                            <span class="place__subtitle">Croacia</span>
+                            <span class="place__price">$1999</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== SUBSCRIBE ====================-->
+        <section class="subscribe section" id="contact">
+            <div class="subscribe__bg">
+                <div class="subscribe__container container">
+                    <h2 class="section__title subscribe__title">Liên hệ ngay</h2>
+                    <!-- <p class="subscribe__description">Subscribe to our newsletter and get a
+                        special 30% discount.
+                    </p> -->
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <i class="ri-phone-fill"></i>
+                            <span>0985053560</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="ri-mail-fill"></i>
+                            <span><a href="mailto:phongtranhdiemsac@gmail.com">phongtranhdiemsac@gmail.com</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="ri-facebook-box-fill"></i>
+                            <span><a href="https://www.facebook.com/profile.php?id=100063675285643"
+                                    target="_blank">Tranh sơn dầu Điểm Sắc</a></span>
+                        </div>
+                    </div>
+
+                    <!-- <form action="" class="subscribe__form">
+                        <input type="text" placeholder="Enter email" class="subscribe__input">
+
+                        <button class="button">
+                            Subscribe
+                        </button>
+                    </form> -->
+                </div>
+            </div>
+        </section>
+
+        <!--==================== SPONSORS ====================-->
+        <!-- <section class="sponsor section">
+            <div class="sponsor__container container grid">
+                <div class="sponsor__content">
+                    <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
+                </div>
+                <div class="sponsor__content">
+                    <img src="assets/img/sponsors2.png" alt="" class="sponsor__img">
+                </div>
+                <div class="sponsor__content">
+                    <img src="assets/img/sponsors3.png" alt="" class="sponsor__img">
+                </div>
+                <div class="sponsor__content">
+                    <img src="assets/img/sponsors4.png" alt="" class="sponsor__img">
+                </div>
+                <div class="sponsor__content">
+                    <img src="assets/img/sponsors5.png" alt="" class="sponsor__img">
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content grid">
+                <div class="footer__data">
+                    <h3 class="footer__title">Điểm sắc</h3>
+                    <p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=198/8+Nguyễn+Văn+Khối,+Phường+9,+Quận+Gò+Vấp,+TP.+HCM"
+                            target="_blank" rel="noopener noreferrer" class="footer__description">
+                            <i class="ri-map-pin-line"></i>
+                            198/8 Nguyễn Văn Khối, <br>Phường 9, Gò Vấp, Hồ chí Minh
+                        </a>
+                    </p>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">Menu</h3>
+                    <ul>
+                        <li class="footer__item">
+                            <a href="" class="footer__link">Họa Sỹ</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="" class="footer__link">Tranh</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="" class="footer__link">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">Thông tin thêm</h3>
+                    <ul>
+                        <li class="footer__item">
+                            <a href="https://www.facebook.com/dat.le.tan.595046" class="footer__link">Lê Tấn Đạt</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="https://www.facebook.com/tran.thi.kim.lien.975895" class="footer__link">Trần Thị
+                                Kim Liên</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__rights">
+                <p class="footer__copy">&#169; 2025 TNT. All rigths reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
