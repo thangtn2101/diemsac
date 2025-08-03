@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "title": "Gà cồ đen",
+        "filename": "assets/img/TranhNgang/gacoden.jpg",
+        "size": "A3",
+        "year": 2025,
+        "material": "Màu nước"
+    },
+    {
+        "id": 2,
+        "title": "Chào xuân Ất Tỵ",
+        "filename": "assets/img/TranhNgang/chaoxuanatty.jpg",
+        "size": "60 x 80",
+        "year": 2025,
+        "material": "Acrylic"
+    },
+    {
+        "id": 3,
+        "title": "Tịnh Biên An Giang",
+        "filename": "assets/img/TranhNgang/tinhbienangiang.jpg",
+        "size": "60 x 80",
+        "year": 2024,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 4,
+        "title": "Trái thơm",
+        "filename": "assets/img/TranhNgang/traithom.jpg",
+        "size": "50 x 60",
+        "year": 2024,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 5,
+        "title": "Cam sành",
+        "filename": "assets/img/TranhNgang/camsanh.jpg",
+        "size": "30 x 40",
+        "year": 2024,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 6,
+        "title": "Mộc Mạc",
+        "filename": "assets/img/TranhNgang/mocmac.jpg",
+        "size": "30 x 40",
+        "year": 2023,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 7,
+        "title": "Chuyển mùa",
+        "filename": "assets/img/TranhNgang/chuyenmua.jpg",
+        "size": "70 x 90",
+        "year": 2023,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 8,
+        "title": "Hoa sen",
+        "filename": "assets/img/TranhNgang/hoasen.jpg",
+        "size": "50 x 60",
+        "year": 2023,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 9,
+        "title": "Chào xuân",
+        "filename": "assets/img/TranhNgang/chaoxuan.jpg",
+        "size": "30 x 50",
+        "year": 2022,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 10,
+        "title": "Gà cồ kiển",
+        "filename": "assets/img/TranhNgang/gacokien.jpg",
+        "size": "30 x 40",
+        "year": 2022,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 11,
+        "title": "Nhạn và Ô",
+        "filename": "assets/img/TranhNgang/nhanvao.jpg",
+        "size": "50 x 60",
+        "year": 2022,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 12,
+        "title": "Nét đẹp dũng khí",
+        "filename": "assets/img/TranhNgang/netdepdungkhi.jpg",
+        "size": "60 x 80",
+        "year": 2021,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 13,
+        "title": "Nhớ đồng",
+        "filename": "assets/img/TranhNgang/nhodong.jpg",
+        "size": "80 x 120",
+        "year": 2021,
+        "material": "Acrylic"
+    },
+    {
+        "id": 14,
+        "title": "Hoa hồng phấn",
+        "filename": "assets/img/TranhNgang/hoahongphan.jpg",
+        "size": "50 x 50",
+        "year": 2021,
+        "material": "Acrylic"
+    },
+    {
+        "id": 15,
+        "title": "Cập nhật thời sự",
+        "filename": "assets/img/TranhNgang/capnhatthoisu.jpg",
+        "size": "60 x 80",
+        "year": 2021,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 16,
+        "title": "Tìm kiếm trí thức",
+        "filename": "assets/img/TranhNgang/timkiemtrithuc.jpg",
+        "size": "70 x 70",
+        "year": 2020,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 17,
+        "title": "Góc vườn quê",
+        "filename": "assets/img/TranhNgang/gocvuonque.jpg",
+        "size": "80 x 80",
+        "year": 2023,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 18,
+        "title": "Giao lộ ngày mới",
+        "filename": "assets/img/TranhNgang/giaolongaymoi.jpg",
+        "size": "120 x 100",
+        "year": 2023,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 19,
+        "title": "Hoa xuân bến Bình Đông",
+        "filename": "assets/img/TranhNgang/hoaxuanbenbinhdong.jpg",
+        "size": "110 x 160",
+        "year": 2023,
+        "material": "Sơn dầu"
+    },
+    {
+        "id": 20,
+        "title": "Chống dịch Covid-19",
+        "filename": "assets/img/TranhNgang/chungsucchongdichcovid19.jpg",
+        "size": "110 x 160",
+        "year": 2021,
+        "material": "Acrylic"
+    },
+    {
+        "id": 21,
+        "title": "Giữ gìn sạch xanh kênh rạch",
+        "filename": "assets/img/TranhNgang/giuginsachxanhkenhrach.jpg",
+        "size": "100 x 150",
+        "year": 2022,
+        "material": "Sơn dầu"
+    }
+]

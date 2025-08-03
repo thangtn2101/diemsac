@@ -2,94 +2,205 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Tranh</title>
-    <style>
-        :root {
-            --primary: #1e293b;
-            --secondary: #64748b;
-            --accent: #f59e0b;
-            --bg: #f8fafc;
-            --radius: 12px;
-        }
+  <meta charset="UTF-8">
+  <title>Responsive Canvas Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg);
-            margin: 0;
-            padding: 0;
-            color: var(--primary);
-        }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-            display: grid;
-            gap: 24px;
-        }
+    .open-btn {
+      margin: 50px;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
 
-        .card {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
-            background: white;
-            padding: 24px;
-            border-radius: var(--radius);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
+    /* Canvas Popup */
+    .canvas-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      flex-direction: row;
+    }
 
-        .card img {
-            width: 100%;
-            border-radius: var(--radius);
-            object-fit: cover;
-        }
+    .canvas-popup.active {
+      display: flex;
+    }
 
-        .info h1 {
-            margin-top: 0;
-            font-size: 2em;
-            color: var(--primary);
-        }
+    /* Image Area */
+    .canvas-image-container {
+      width: 80%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .attributes {
-            margin-top: 20px;
-        }
+    .canvas-image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
 
-        .attribute {
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
+    /* Info Panel */
+    .canvas-info-container {
+      width: 20%;
+      height: 100%;
+      color: #fff;
+      padding: 30px 20px;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      overflow-y: auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
 
-        .label {
-            font-weight: bold;
-            color: var(--secondary);
-        }
+    .canvas-info-container h1 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #f9f9f9;
+    }
 
-        @media (max-width: 768px) {
-            .card {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .canvas-info-container hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin: 1rem 0;
+    }
+
+    .canvas-info-container h2,
+    .canvas-info-container h3 {
+      font-size: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #ddd;
+    }
+
+    .canvas-info-container ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .canvas-info-container p,
+    .canvas-info-container li {
+      margin-bottom: 0.5rem;
+    }
+
+    .price-highlight {
+      color: #ffcd57;
+      font-weight: bold;
+    }
+
+    /* Close Button */
+    .canvas-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s;
+    }
+
+    .canvas-close:hover {
+      color: #ff5555;
+    }
+
+ 
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <img src="https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU"
-                alt="Tên Tranh">
-            <div class="info">
-                <h1>Mùa Thu Vàng</h1>
-                <div class="attributes">
-                    <div class="attribute"><span class="label">Kích thước:</span> 60cm x 80cm</div>
-                    <div class="attribute"><span class="label">Năm sáng tác:</span> 2020</div>
-                    <div class="attribute"><span class="label">Chất liệu:</span> Sơn dầu trên canvas</div>
-                    <div class="attribute"><span class="label">Giá bán:</span> Vui lòng liên hệ</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
 
+  <button class="open-btn" onclick="openCanvas()">Xem Tác Phẩm</button>
+
+  <!-- Canvas Popup -->
+  <div id="canvasPopup" class="canvas-popup">
+    <span class="canvas-close" onclick="closeCanvas()">&times;</span>
+
+    <!-- Image -->
+    <div class="canvas-image-container">
+      <img src="assets/img/homehero.jpg" alt="Chống dịch">
+    </div>
+
+    <!-- Info -->
+    <div class="canvas-info-container">
+      <h1>Cùng nhau chung tay chống dịch Covid19 </h1>
+      <hr>
+
+      <div class="art-meta">
+        <p><strong>Tác giả:</strong> Lê Tấn Đạt</p>
+        <p><strong>Kích thước:</strong> 110 x 160 cm</p>
+        <p><strong>Năm sáng tác:</strong> 2021</p>
+        <p><strong>Chất liệu:</strong> Acrylic</p>
+        <p><strong>Giá bán:</strong> <span class="price-highlight">Vui lòng liên hệ</span></p>
+      </div>
+
+      <hr>
+
+      <div class="purchase-instructions">
+        <h2>Hướng dẫn mua & thanh toán</h2>
+        <p>Liên hệ qua <strong>điện thoại, email hoặc fanpage</strong> để đặt mua tranh.</p>
+
+        <ul>
+          <li><strong>Giá bao gồm:</strong> khung cơ bản, vận chuyển và lắp đặt (TP.HCM).</li>
+          <li><strong>Đóng gói:</strong> Bubble wrap & thùng carton niêm phong.</li>
+        </ul>
+
+        <h3>Phương thức thanh toán</h3>
+        <ul>
+          <li>Đặt cọc <strong>50%</strong> khi chọn tranh.</li>
+          <li>Thanh toán 50% còn lại khi nhận tranh (tối đa 10 ngày).</li>
+        </ul>
+
+        <h3>Chính sách hoàn cọc</h3>
+        <ul>
+          <li><strong>0–3 ngày:</strong> hoàn 100%.</li>
+          <li><strong>4–10 ngày:</strong> hoàn 50%.</li>
+          <li><strong>11+ ngày:</strong> không hoàn cọc.</li>
+        </ul>
+
+        <h3>Gia hạn</h3>
+        <ul>
+          <li>Sau 10 ngày: thanh toán thêm 30%.</li>
+          <li>Sau 30 ngày không thanh toán → mất cọc.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openCanvas() {
+      document.getElementById('canvasPopup').classList.add('active');
+    }
+
+    function closeCanvas() {
+      document.getElementById('canvasPopup').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === "Escape") {
+        closeCanvas();
+      }
+    });
+  </script>
+</body>
 </html>

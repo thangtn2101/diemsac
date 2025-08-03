@@ -190,6 +190,102 @@ input {
   gap: 1.5rem;
 }
 
+/*=============== CANVAS POPUP ===============*/
+.canvas-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: var(--body-color);
+  z-index: 1000;
+  flex-direction: row;
+}
+
+.canvas-popup.active {
+  display: flex;
+}
+
+/* Image Area */
+.canvas-image-container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #000;
+}
+
+.canvas-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Info Panel */
+.canvas-info-container {
+  width: 20%;
+  height: 100%;
+  color: var(--title-color);
+  padding: 30px 20px;
+  border-left: 2px solid var(--first-color);
+  overflow-y: auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.canvas-info-container h1 {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-right: var(--mb-1-25);
+}
+
+.canvas-info-container hr {
+  border: none;
+  border-top: 1px solid var(--first-color);
+  margin: 1rem 0;
+}
+
+.canvas-info-container h2,
+.canvas-info-container h3 {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.canvas-info-container ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 1rem;
+}
+
+.canvas-info-container p,
+.canvas-info-container li {
+  margin-bottom: 0.5rem;
+}
+
+.price-highlight {
+  color: #FE7743;
+  font-weight: bold;
+}
+
+/* Close Button */
+.canvas-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: var(--text-color);
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s;
+}
+
+.canvas-close:hover {
+  color: #ff5555;
+}
+
 /*=============== HEADER ===============*/
 .header {
   width: 100%;
@@ -896,6 +992,32 @@ input {
   }
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+  .canvas-popup {
+    flex-direction: column;
+  }
+
+  .canvas-image-container {
+    width: 100%;
+    height: 65%;
+  }
+
+  .canvas-info-container {
+    width: 100%;
+    height: 35%;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    padding: 20px;
+  }
+
+  .canvas-close {
+    top: 10px;
+    right: 20px;
+  }
+}
+
 /* For medium devices */
 @media screen and (min-width: 568px) {
   .video__container {
@@ -1042,7 +1164,7 @@ input {
   }
 
   .subscribe__bg {
-    background: none;
+    /* background: none; */
     padding: 0;
   }
 
