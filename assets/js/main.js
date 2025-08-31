@@ -247,6 +247,9 @@ function openCanvas(id) {
 
     document.body.style.overflow = 'hidden'; // Prevent scrolling
 
+    // Push a new state to the history stack
+    history.pushState({ canvasOpen: true }, "", window.location.href);
+
 }
 
 function closeCanvas() {
@@ -258,6 +261,17 @@ function closeCanvas() {
 document.addEventListener('keydown', function (e) {
     if (e.key === "Escape") {
         closeCanvas();
+    }
+});
+
+// Listen for popstate events to handle back button
+window.addEventListener("popstate", function (event) {
+    const canvasPopup = document.getElementById('canvasPopup');
+    if (canvasPopup.classList.contains("active")) {
+        closeCanvas();
+
+        // Push the state back to prevent going back further
+        history.pushState(null, "", window.location.href);
     }
 });
 

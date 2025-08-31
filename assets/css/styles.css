@@ -228,7 +228,7 @@ input {
 /* Image block */
 .image-box {
   position: relative;
-  background: url('/assets/img/TranhNgang/chungsucchongdichcovid19.jpg') no-repeat center center/cover;
+  background: url('../img/TranhNgang/chungsucchongdichcovid19.jpg') no-repeat center center/cover;
   width: 95%;
   aspect-ratio: 1293 / 615;
   display: flex;
