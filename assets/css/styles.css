@@ -190,6 +190,94 @@ input {
   gap: 1.5rem;
 }
 
+
+/*=============== PAINTING SECTION ===============*/
+
+/* Section wrapper */
+.painting-section {
+  background: linear-gradient(-45deg,
+      #2d4b53,
+      #78e6d0,
+      #00a0b0,
+      #70caee,
+      #243057);
+  background-size: 400% 400%;
+  animation: gradient-animation 5s ease infinite;
+  /* Added animation property */
+  margin-top: 2rem;
+  padding: 70px 0;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Image block */
+.image-box {
+  position: relative;
+  background: url('/assets/img/TranhNgang/chungsucchongdichcovid19.jpg') no-repeat center center/cover;
+  width: 95%;
+  aspect-ratio: 1293 / 615;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* fade đen từ phải -> trái */
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+
+
+.text-box {
+  position: relative;
+  z-index: 2;
+  /* trên lớp fade */
+  max-width: 400px;
+  padding: 42px;
+  color: #fff;
+}
+
+.text-box h1 {
+  font-size: var(--h1-font-size);
+  color: #70caee;
+  margin-bottom: 20px;
+}
+
+.text-box p {
+  font-size: var(--normal-font-size);
+  line-height: 1.6;
+  color: var(--text-white);
+  margin-bottom: 20px;
+}
+
+#text-box-1 {
+  display: block;
+}
+
+#text-box-2 {
+  display: none;
+}
+
+
 /*=============== CANVAS POPUP ===============*/
 .canvas-popup {
   display: none;
@@ -620,60 +708,6 @@ input {
   background-image: none;
 }
 
-/*=============== EXPERIENCE ===============*/
-.experience__container {
-  row-gap: 2.5rem;
-  justify-content: center;
-  justify-items: center;
-}
-
-.experience__content {
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 1rem;
-  justify-items: center;
-  padding: 0 2rem;
-}
-
-.experience__number {
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-semi-bold);
-  margin-bottom: var(--mb-0-5);
-}
-
-.experience__description {
-  font-size: var(--small-font-size);
-}
-
-.experience__img {
-  position: relative;
-  padding-bottom: 2rem;
-}
-
-.experience__img-one,
-.experience__img-two {
-  transition: var(--img-transition);
-}
-
-.experience__img-one:hover,
-.experience__img-two:hover {
-  transform: var(--img-scale);
-}
-
-.experience__overlay {
-  overflow: var(--img-hidden);
-}
-
-.experience__overlay:nth-child(1) {
-  width: 263px;
-  margin-right: 2rem;
-}
-
-.experience__overlay:nth-child(2) {
-  width: 120px;
-  position: absolute;
-  top: 2rem;
-  right: 0;
-}
 
 /*=============== VIDEO ===============*/
 .video__container {
@@ -707,7 +741,7 @@ input {
 }
 
 .place__container {
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(1, max-content);
   justify-content: center;
 }
 
@@ -969,26 +1003,9 @@ input {
     justify-content: center;
   }
 
-  .experience__content {
-    padding: 0;
-  }
-
-  .experience__overlay:nth-child(1) {
-    width: 190px;
-  }
-
-  .experience__overlay:nth-child(2) {
-    width: 80px;
-  }
-
   .home__info {
     width: 190px;
     padding: 1rem;
-  }
-
-  .experience__img,
-  .video__container {
-    padding: 0;
   }
 }
 
@@ -1016,6 +1033,53 @@ input {
     top: 10px;
     right: 20px;
   }
+
+  /* painting-section */
+  .painting-section {
+    padding: 20px;
+    display: block;
+  }
+
+  .image-box {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* Text box */
+  .text-box {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    max-width: 1000px;
+  }
+
+  .text-box h1 {
+    margin-bottom: 5px;
+  }
+
+  .text-box p {
+    margin-bottom: 5px;
+    font-size: var(--smaller-font-size);
+  }
+
+  #text-box-1 {
+    display: none;
+  }
+
+  #text-box-2 {
+    display: block;
+  }
+
+
 }
 
 /* For medium devices */
@@ -1027,7 +1091,7 @@ input {
   }
 
   .place__container {
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(2, max-content);
   }
 
   .subscribe__form {
@@ -1154,15 +1218,6 @@ input {
     padding-top: 2rem;
   }
 
-  .experience__overlay:nth-child(1) {
-    width: 363px;
-    margin-right: 4rem;
-  }
-
-  .experience__overlay:nth-child(2) {
-    width: 160px;
-  }
-
   .subscribe__bg {
     /* background: none; */
     padding: 0;
@@ -1184,7 +1239,7 @@ input {
 }
 
 /* For large devices */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .container {
     margin-left: auto;
     margin-right: auto;
@@ -1233,30 +1288,8 @@ input {
     font-size: var(--h2-font-size);
   }
 
-  .experience__content {
-    margin: var(--mb-1) 0;
-    column-gap: 3.5rem;
-  }
-
-  .experience__overlay:nth-child(1) {
-    width: 463px;
-    margin-right: 7rem;
-  }
-
-  .experience__overlay:nth-child(2) {
-    width: 220px;
-    top: 3rem;
-  }
-
-  .video__container {
-    grid-template-columns: .7fr;
-  }
-
-  .video__description {
-    padding: 0 8rem;
-  }
-
   .place__container {
+    grid-template-columns: repeat(3, max-content);
     gap: 3rem 2rem;
   }
 
