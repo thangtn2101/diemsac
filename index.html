@@ -34,16 +34,16 @@
                         <a href="#home" class="nav__link active-link">Trang chủ</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">Họa sỹ</a>
+                        <a href="artist.html#about" class="nav__link">Họa sỹ</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#discover" class="nav__link">Tranh</a>
+                        <a href="gallery.html#discover" class="nav__link">Tác phẩm</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="policypage.html#policy" class="nav__link">Chính sách</a>
                     </li>
                     <li class="nav__item">
                         <a href="#contact" class="nav__link">Liên hệ</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="policypage.html" class="nav__link">Chính sách</a>
                     </li>
                 </ul>
 
@@ -69,8 +69,8 @@
 
             <div class="home__container container grid">
                 <div class="home__data">
-                    <span class="home__data-subtitle">Phòng tranh</span>
-                    <h1 class="home__data-title">Tranh <br> Sơn Dầu <br>Điểm Sắc</h1>
+                    <span class="home__data-subtitle"> </span>
+                    <h1 class="home__data-title"> </h1>
                 </div>
 
             </div>
@@ -81,11 +81,12 @@
             <div class="about__container container grid">
                 <div class="about__data">
                     <h2 class="section__title about__title">Lê Tấn Đạt</h2>
-                    <p class="about__description">Là họa sĩ chuyên bán tranh nghệ thuật đa dạng phong cách,
-                        đồng thời nhận vẽ theo yêu cầu của khách hàng để tạo nên những tác phẩm độc đáo và ý nghĩa. Hãy
-                        để nghệ thuật của Lê Tấn Đạt biến không gian của bạn trở nên sống động và mang đậm dấu ấn cá
-                        nhân.
+                    <p class="about__description">Họa sỹ Lê Tấn Đạt, sinh năm 1967 tại Bình Định, tốt nghiệp Đại học
+                        Nghệ thuật Huế năm 1991, chuyên ngành hội họa. Hội viên Hội Mỹ thuật TP. Hồ Chí Minh, thường
+                        xuyên tham gia triển lãm nghệ thuật trong và ngoài khu vực, với nhiều dấu ấn tại Bảo tàng Mỹ
+                        thuật TP. Hồ Chí Minh và Đà Nẵng.
                     </p>
+                    <a href="artist.html" class="button">Xem thêm</a>
                     <a href="#contact" class="button">Liên hệ ngay</a>
                 </div>
 
@@ -99,8 +100,16 @@
 
         <!--==================== DISCOVER ====================-->
         <section class="discover section" id="discover">
-            <h2 class="section__title">Khám phá tranh</h2>
-            <div class="discover__container container swiper-container" id="discover-container"></div>
+            <h2 class="section__title">Tác phẩm</h2>
+
+            <div class="video__container container">
+                <p class="video__description"> Sự rung cảm trước ngoại cảnh, là nguồn cảm hứng để cho người họa sỹ cảm
+                    tác nên tác phẩm
+                </p>
+            </div>
+            <div class="discover__container container swiper-container" id="discover-container">
+                <!-- Cards will be dynamically inserted here by JavaScript -->
+            </div>
         </section>
 
         <!--==================== EXPERIENCE ====================-->
@@ -172,31 +181,6 @@
         </section>
 
         <!--==================== CANVAS POPUP ====================-->
-        <div id="canvasPopup" class="canvas-popup">
-            <span class="canvas-close" onclick="closeCanvas()">&times;</span>
-
-            <!-- Image -->
-            <div class="canvas-image-container">
-                <img id="canvasImage" src="" alt="">
-            </div>
-
-            <!-- Info -->
-            <div class="canvas-info-container">
-                <h1 id="canvasTitle"></h1>
-                <hr>
-
-                <div class="art-meta">
-                    <p><strong>Tác giả:</strong> Lê Tấn Đạt</p>
-                    <p><strong>Kích thước:</strong> <span id="canvasSize"></span> cm</p>
-                    <p><strong>Năm sáng tác:</strong> <span id="canvasYear"></span></p>
-                    <p><strong>Chất liệu:</strong> <span id="canvasMaterial"></span></p>
-                    <p><strong>Giá bán:</strong> <span class="price-highlight">Vui lòng liên hệ</span></p>
-                </div>
-                <hr>
-                <a href="#contact" class="button" onclick="closeCanvas()">Liên hệ ngay</a>
-
-            </div>
-        </div>
     </main>
 
     <!--==================== FOOTER ====================-->
@@ -218,7 +202,7 @@
                     <h3 class="footer__subtitle">Menu</h3>
                     <ul>
                         <li class="footer__item"><a href="#about" class="footer__link">Họa Sỹ</a></li>
-                        <li class="footer__item"><a href="#discover" class="footer__link">Tranh</a></li>
+                        <li class="footer__item"><a href="#discover" class="footer__link">Tác phẩm</a></li>
                         <li class="footer__item"><a href="#contact" class="footer__link">Liên hệ</a></li>
                         <li class="footer__item"><a href="policypage.html" class="footer__link">Chính sách</a></li>
 
@@ -243,6 +227,9 @@
 
             <div class="footer__rights">
                 <p class="footer__copy">&#169; 2025 TNT. All rigths reserved.</p>
+                <p class="footer__copy"> Liên hệ để làm website: <a href="https://www.facebook.com/ngocthang.tran.5855"
+                        target="_blank" class="footer__link">Trần Ngọc Thắng</a>
+                </p>
             </div>
         </div>
     </footer>

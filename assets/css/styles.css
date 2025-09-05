@@ -324,7 +324,7 @@ input {
 }
 
 .canvas-info-container h1 {
-  font-size: var(--h1-font-size);
+  font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
   color: var(--title-color);
   margin-right: var(--mb-1-25);
@@ -334,12 +334,6 @@ input {
   border: none;
   border-top: 1px solid var(--first-color);
   margin: 1rem 0;
-}
-
-.canvas-info-container h2,
-.canvas-info-container h3 {
-  font-size: 1rem;
-  margin-top: 1rem;
 }
 
 .canvas-info-container ul {
@@ -738,10 +732,19 @@ input {
 .place__card,
 .place__img {
   height: 230px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
 }
 
 .place__container {
   grid-template-columns: repeat(1, max-content);
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -758,9 +761,30 @@ input {
   transition: var(--img-transition);
 }
 
+
 .place__content,
 .place__title {
   color: var(--white-color);
+}
+
+.place__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  transform: translateY(100%);
+  /* Ẩn nội dung ban đầu */
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.place__card:hover .place__content {
+  transform: translateY(0);
+  /* Hiện nội dung khi di chuột */
 }
 
 .place__content {
@@ -1079,6 +1103,9 @@ input {
     display: block;
   }
 
+  .place__content {
+    transform: translateY(0);
+  }
 
 }
 

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+
+  <!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!--=============== SWIPER CSS ===============-->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>ĐIỂM SẮC</title>
+  <style>
+    .artist-content {
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+    }
+
+    .artist-biography .grid {
+      gap: 3rem;
+    }
+
+    .artist-portrait {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .artist-bio {
+      text-align: justify;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+      /* Reducido el margen vertical para móvil */
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #e0e0e0;
+      background: linear-gradient(45deg, transparent, black, transparent);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      flex-direction: column;
+      /* Apilamos los elementos en móvil */
+      margin-bottom: 60px;
+      /* Reducido el margen inferior para móvil */
+      position: relative;
+    }
+
+    .timeline-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      z-index: 2;
+      margin-right: 20px;
+      /* Reducido el margen derecho para móvil */
+      flex-shrink: 0;
+      transform: unset;
+      /* Eliminamos la transformación para móvil */
+    }
+
+    .timeline-content {
+      flex: 1;
+      margin-left: 60px;
+      /* Añadimos margen izquierdo para alinear con la línea */
+      margin-top: -40px;
+      /* Ajustamos el margen superior para superponerse */
+      padding-top: 10px;
+    }
+
+    .timeline-content h2 {
+      font-size: 20px;
+      /* Reducido el tamaño de la fuente para móvil */
+      margin-bottom: 10px;
+      /* Reducido el margen inferior para móvil */
+      color: #333;
+      font-weight: 600;
+    }
+
+    .timeline-content p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 15px;
+      /* Reducido el margen inferior para móvil */
+      max-width: 100%;
+      /* El texto ocupa todo el ancho disponible en móvil */
+    }
+
+    .timeline-image {
+      width: calc(100% - 60px);
+      /* Ocupa el ancho restante */
+      height: 180px;
+      /* Reducida la altura para móvil */
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 60px;
+      /* Alineado con el contenido */
+      margin-top: 20px;
+      /* Añadido margen superior */
+      flex-shrink: 0;
+    }
+
+    .timeline-image img {
+      max-width: 100%;
+      /* La imagen se ajusta al contenedor */
+      max-height: 100%;
+    }
+
+    /* Estilos para desktop (a partir de 769px de ancho) */
+    @media (min-width: 769px) {
+      body {
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        padding: 40px 20px;
+      }
+
+      .header {
+        margin-bottom: 50px;
+      }
+
+      .header h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .header p {
+        font-size: 18px;
+        max-width: 800px;
+      }
+
+      .timeline {
+        margin: 60px 0;
+      }
+
+      .timeline-line {
+        left: 40px;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        flex-direction: row;
+        /* Volvemos a la disposición horizontal en desktop */
+        margin-bottom: 80px;
+      }
+
+      .timeline-number {
+        margin-right: 40px;
+        width: 40px;
+        height: 40px;
+        transform: translateX(20px);
+        /* Volvemos a la transformación original */
+      }
+
+      .timeline-content {
+        margin-left: 0;
+        /* Removemos el margen izquierdo */
+        margin-top: 0;
+        /* Removemos el margen superior */
+        padding-top: 0;
+      }
+
+      .timeline-content h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .timeline-content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        max-width: 500px;
+      }
+
+      .timeline-image {
+        width: 300px;
+        height: 200px;
+        margin-left: 40px;
+        margin-top: 0;
+        /* Removemos el margen superior */
+      }
+
+      .timeline-image img {
+        max-width: 120px;
+        max-height: 120px;
+      }
+    }
+
+    .artist-bio .artist-keywords {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--first-color);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--container-color);
+    }
+  </style>
+</head>
+
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <a href="index.html" class="nav__logo">
+          <img src="assets/img/favicon.png" alt="" class="nav__logo__img">ĐIỂM SẮC
+        </a>
+      </div>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html#home" class="nav__link">Trang chủ</a>
+          </li>
+          <li class="nav__item">
+            <a href="index.html#about" class="nav__link">Họa sỹ</a>
+          </li>
+          <li class="nav__item">
+            <a href="gallery.html#discover" class="nav__link">Tác phẩm</a>
+          </li>
+          <li class="nav__item">
+            <a href="policypage.html#policy" class="nav__link">Chính sách</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Liên hệ</a>
+          </li>
+        </ul>
+
+        <div class="nav__dark">
+          <span class="change-theme-name">Dark mode</span>
+          <i class="ri-moon-line change-theme" id="theme-button"></i>
+        </div>
+
+        <i class="ri-close-line nav__close" id="nav-close"></i>
+      </div>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-function-line"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="home">
+      <img src="assets/img/homehero.jpg" alt="" class="home__img">
+
+      <div class="home__container container grid">
+        <div class="home__data">
+          <span class="home__data-subtitle">Phòng tranh</span>
+          <h1 class="home__data-title">Tranh <br> Sơn Dầu <br>Điểm Sắc</h1>
+        </div>
+
+      </div>
+    </section>
+
+    <!--==================== ARTIST ====================-->
+    <section class="about section" id="about">
+      <h2 class="section__title">HỌA SỸ LÊ TẤN ĐẠT</h2>
+
+      <section class="artist-biography container section">
+        <div class="artist-content grid">
+          <div class="artist-img-container">
+            <img src="https://picsum.photos/id/1062/600/600" alt="Chân dung Họa sĩ Lê Tấn Đạt" class="artist-portrait">
+          </div>
+          <div class="artist-bio">
+            <h2 class="section__title about__title">Tiểu sử</h2>
+            <p>
+              Họa sỹ Lê Tấn Đạt, sinh năm 1967 tại Bình Định, tốt nghiệp Đại học Nghệ thuật Huế năm 1991, chuyên ngành
+              hội họa. Hội viên Hội Mỹ thuật TP. Hồ Chí Minh, thường xuyên tham gia triển lãm nghệ thuật trong và ngoài
+              khu vực, với nhiều dấu ấn tại Bảo tàng Mỹ thuật TP. Hồ Chí Minh và Đà Nẵng.
+            </p>
+            <p>
+              Với niềm đam mê nghệ thuật và văn học, theo đuổi con đường sáng tác hội họa chuyên sâu, đặc biệt ở các
+              chất liệu acrylic, sơn dầu và màu nước. Tranh mang phong cách sáng tạo, gần gũi đời sống, góp mặt trong
+              nhiều trại sáng tác và triển lãm thường niên của Hội Mỹ thuật TP. Hồ Chí Minh.
+            </p>
+            <div class="artist-keywords">
+              <strong>Tóm tắt:</strong> Sinh năm 1967 tại Bình Định
+              1991 - Tốt nghiệp Đại học nghệ thuật H uế - Khoa hội họa
+              Hội viên Hội Mỹ thuật Thành phố Hồ Chí Minh.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== Time ====================-->
+      <div class="container">
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <h2 class="section__title about__title">Các triển lãm đã tham gia</h2>
+          <div class="timeline-item">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h2>1999</h2>
+              <p>CLB họa sỹ trẻ Tp. H CM</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 20L90 40V80L60 100L30 80V40L60 20Z" stroke="black" stroke-width="4" />
+                <path d="M60 20V100" stroke="black" stroke-width="4" stroke-dasharray="8 4" />
+                <path d="M30 40L60 60L90 40" stroke="black" stroke-width="4" />
+                <path d="M30 80L60 60" stroke="black" stroke-width="4" stroke-dasharray="8 4" />
+                <path d="M90 80L60 60" stroke="black" stroke-width="4" stroke-dasharray="8 4" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h2>2004</h2>
+              <p>Mỹ thuật khu vực 6 - Bảo tàng Mỹ thuật Tp. HCM</p>
+            </div>
+
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h2>Launch & Grow Your Online Presence</h2>
+              <p>Deploy your completed website to the world and begin your journey of online growth. Utilize our
+                analytics and marketing tools to reach your audience and expand your reach.</p>
+            </div>
+            <div class="timeline-image">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="black" stroke-width="4" />
+                <path d="M50 50L90 50L90 90L50 90L50 50Z" stroke="black" stroke-width="4" fill="white" />
+                <path d="M50 90L50 50" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <path d="M90 90L50 90" stroke="black" stroke-width="4" stroke-dasharray="3 3" />
+                <rect x="60" y="60" width="20" height="20" fill="black" />
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!--==================== SUBSCRIBE ====================-->
+    <section class="subscribe section" id="contact">
+      <div class="subscribe__bg">
+        <div class="subscribe__container container">
+          <h2 class="section__title subscribe__title">Liên hệ ngay</h2>
+          <div class="contact-card">
+            <div class="contact-item">
+              <i class="ri-phone-fill"></i>
+              <span>0985053560</span>
+            </div>
+            <div class="contact-item">
+              <i class="ri-mail-fill"></i>
+              <span><a href="mailto:phongtranhdiemsac@gmail.com">phongtranhdiemsac@gmail.com</a></span>
+            </div>
+            <div class="contact-item">
+              <i class="ri-facebook-box-fill"></i>
+              <span><a href="https://www.facebook.com/profile.php?id=100063675285643" target="_blank">Tranh sơn dầu Điểm
+                  Sắc</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer section">
+    <div class="footer__container container grid">
+      <div class="footer__content grid">
+        <div class="footer__data">
+          <h3 class="footer__title">Điểm sắc</h3>
+          <p>
+            <a href="https://www.google.com/maps/search/?api=1&query=198/8+Nguyễn+Văn+Khối,+Phường+9,+Quận+Gò+Vấp,+TP.+HCM"
+              target="_blank" rel="noopener noreferrer" class="footer__description">
+              <i class="ri-map-pin-line"></i>
+              198/8 Nguyễn Văn Khối, <br>Phường 9, Gò Vấp, Hồ chí Minh
+            </a>
+          </p>
+        </div>
+
+        <div class="footer__data">
+          <h3 class="footer__subtitle">Menu</h3>
+          <ul>
+            <li class="footer__item"><a href="index.html#about" class="footer__link">Họa Sỹ</a></li>
+            <li class="footer__item"><a href="index.html#discover" class="footer__link">Tác phẩm</a></li>
+            <li class="footer__item"><a href="index.html#contact" class="footer__link">Liên hệ</a></li>
+            <li class="footer__item"><a href="policypage.html" class="footer__link">Chính sách</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__data">
+          <h3 class="footer__subtitle">Thông tin thêm</h3>
+          <ul>
+            <li class="footer__item"><a href="https://www.facebook.com/dat.le.tan.595046" class="footer__link"
+                target="_blank">Lê Tấn Đạt</a></li>
+            <li class="footer__item"><a href="https://www.facebook.com/tran.thi.kim.lien.975895" class="footer__link"
+                target="_blank">Trần Thị Kim Liên</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__rights">
+        <p class="footer__copy">&#169; 2025 TNT. All rigths reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!--========== SCROLL UP ==========-->
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-up-line scrollup__icon"></i>
+  </a>
+
+  <!--=============== SCROLL REVEAL===============-->
+  <script src="assets/js/scrollreveal.min.js"></script>
+
+  <!--=============== SWIPER JS ===============-->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

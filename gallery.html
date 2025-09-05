@@ -15,44 +15,129 @@
 
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="assets/css/styles.css">
+  <title>ĐIỂM SẮC</title>
   <style>
-    .policy-container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 25px 30px;
-      line-height: 1.6;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-
+    /* Gallery Section */
+    .gallery__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
 
-    .policy-container h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+    .gallery__card {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .gallery__card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery__img {
+      width: 100%;
+      height: 250px;
+      /* Cố định chiều cao để các thẻ đồng đều hơn */
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery__data {
+      padding: 1rem;
+      background-color: var(--container-color);
       text-align: center;
     }
 
-    .policy-container h4 {
-      font-size: 1.2rem;
-      margin-top: 20px;
-      margin-bottom: 8px;
-      position: relative;
+    .gallery__title {
+      font-size: var(--h3-font-size);
+      color: var(--title-color);
+      margin-bottom: 0.25rem;
     }
 
-    .policy-container h4::before {
-      content: "▹";
-      color: #cc4444;
-      margin-right: 6px;
+    .gallery__subtitle {
+      font-size: var(--small-font-size);
+      color: var(--text-color-light);
     }
 
-    .policy-container p {
-      margin-bottom: 12px;
-      font-size: 1rem;
-      text-align: justify;
+    /* Hiệu ứng trượt thông tin khi di chuột */
+    @media screen and (min-width: 768px) {
+      .gallery__card {
+        position: relative;
+      }
+
+      .gallery__data {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: #fff;
+        text-align: left;
+        padding: 1rem 1rem 1rem 1rem;
+      }
+
+      .gallery__card:hover .gallery__data {
+        transform: translateY(0);
+      }
+
+      .gallery__subtitle,
+      .gallery__title {
+        color: #fff;
+      }
+
+      .gallery__img {
+        height: 350px;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery__card {
+      opacity: 0;
+      /* start hidden */
+      animation: fadeUp 1s ease forwards;
+    }
+
+    /* Optional: stagger animation for each card */
+    .gallery__card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .gallery__card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .gallery__card:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+
+    .gallery__card:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    .gallery__card:nth-child(5) {
+      animation-delay: 0.7s;
+    }
+
+    .gallery__card:nth-child(6) {
+      animation-delay: 0.8s;
     }
   </style>
-
-  <title>ĐIỂM SẮC</title>
 </head>
 
 <body>
@@ -99,7 +184,6 @@
   </header>
 
   <main class="main">
-    <!--==================== POLICY ====================-->
     <section class="home">
       <img src="assets/img/homehero.jpg" alt="" class="home__img">
 
@@ -111,38 +195,13 @@
 
       </div>
     </section>
+    <section class="about section" id="discover">
+      <h2 class="section__title">TÁC PHẨM</h2>
 
-    <section class="about section" id="policy">
-      <div class="about__container container">
-        <div class="policy-container">
-          <h2 class="section__title">CHÍNH SÁCH MUA TRANH</h2>
+      <div class="gallery__container container grid" id="gallery-container">
+        <!-- Gallery cards will be dynamically inserted here by JavaScript -->
+      </div>
 
-          <div class="about__data">
-            <p>Chào mừng quý khách đến với Điểm Sắc, nơi trưng bày những tác phẩm nghệ thuật độc bản và tinh tế. Để đảm
-              bảo trải nghiệm mua sắm tốt nhất, quý khách vui lòng tham khảo các chính sách sau đây:</p>
-
-            <h4>Tính độc bản và chứng nhận</h4>
-            <p>Mỗi tác phẩm của Điểm Sắc đều là duy nhất và đi kèm với giấy chứng nhận bản quyền chính thức từ họa sĩ.
-              Điều này đảm bảo tính độc bản và giá trị nghệ thuật của bức tranh quý khách sở hữu.</p>
-
-            <h4>Giá và thuế</h4>
-            <p>Vui lòng nhấn <strong>liên hệ</strong> để có thể trao đổi trực tiếp với chúng tôi chi tiết về
-              giá tranh, hóa đơn và các loại thuế áp dụng (nếu có).</p>
-
-            <h4>Giao hàng và lắp đặt</h4>
-            <p>Chúng tôi giao hàng và lắp đặt tận nơi miễn phí trong khu vực nội thành.</p>
-
-            <h4>Thanh toán và nhận hàng</h4>
-            <p>Sau khi quý khách chọn được tác phẩm ưng ý, hai bên sẽ trao đổi và thống nhất về phương thức thanh toán
-              cũng như thời gian nhận hàng phù hợp nhất.</p>
-
-            <h4>Vận chuyển liên tỉnh và quốc tế</h4>
-            <p>Đối với các đơn hàng ngoài khu vực nội thành hoặc gửi đi quốc tế, Điểm Sắc sẽ liên hệ trực tiếp với quý
-              khách để tư vấn phương án đóng gói và vận chuyển tối ưu. Chúng tôi cam kết đảm bảo bức tranh được an toàn
-              và sẽ thống nhất chi phí cũng như hình thức vận chuyển trước khi gửi đi.</p>
-          </div>
-
-        </div>
     </section>
 
     <!--==================== SUBSCRIBE ====================-->

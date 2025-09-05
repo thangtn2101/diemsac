@@ -132,73 +132,60 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
 /*==================== PAINTING GALLERY ====================*/
-// Initialize an empty array to hold the landscape paintings
-let landscape_painting_list = [];
+let painting_list = [];
 
-// Function to fetch and display landscape paintings
+// Run after DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('./assets/json/tranhngang.json')
+    fetch('./assets/json/paintings.json')
         .then(response => response.json())
         .then(data => {
-            landscape_painting_list = data;
+            painting_list = data;
 
-            // Get the container where the painting cards will be displayed
-            const container = document.getElementById('place-container');
-            landscape_painting_list.forEach(place => {
-                const card = document.createElement('div');
-                card.className = 'place__card';
-                card.onclick = () => openCanvas(place.id);
+            // 🎨 Split by type
+            const landscape_paintings = painting_list.filter(p => p.type === "horizontal");
+            const portrait_paintings = painting_list.filter(p => p.type === "vertical");
 
-                card.innerHTML = `
-                    <img src="${place.filename}" alt="${place.title}" class="place__img">
-                    <div class="place__content">
-                        <span class="place__rating">
-                            <i class="ri-star-line place__rating-icon"></i>
-                        </span>
-                        <div class="place__data">
-                            <h3 class="place__title">${place.title}</h3>
-                            <span class="place__subtitle">${place.material}</span>
+            /* ========== LANDSCAPE SECTION (Gallery Cards) ========== */
+            const placeContainer = document.getElementById('place-container');
+            if (placeContainer) {
+                landscape_paintings.forEach(place => {
+                    const card = document.createElement('div');
+                    card.className = 'place__card';
+                    card.onclick = () => openCanvas(place.id);
+
+                    card.innerHTML = `
+                        <img src="${place.filename}" alt="${place.title}" class="place__img">
+                        <div class="place__content">
+                            <span class="place__rating">
+                                <i class="ri-star-line place__rating-icon"></i>
+                            </span>
+                            <div class="place__data">
+                                <h3 class="place__title">${place.title}</h3>
+                                <span class="place__subtitle">${place.material}</span>
+                            </div>
                         </div>
-                    </div>
-                    <button class="button button--flex place__button">
-                        <i class="ri-arrow-right-line"></i>
-                    </button>
+                        <button class="button button--flex place__button">
+                            <i class="ri-arrow-right-line"></i>
+                        </button>
                     `;
-                container.appendChild(card);
-            });
-        })
-        .catch(error => {
-            console.error("Error loading paintings.json:", error);
-        });
-});
+                    placeContainer.appendChild(card);
+                });
+            }
 
-/*==================== DISCOVER PAINTINGS ====================*/
-// Initialize an empty array to hold the portrait paintings
-let portrait_painting_list = [];
+            /* ========== PORTRAIT SECTION (Swiper) ========== */
+            const discoverContainer = document.getElementById('discover-container');
+            if (discoverContainer) {
+                discoverContainer.classList.add('swiper', 'discover__container');
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('./assets/json/tranhdoc.json')
-        .then(response => response.json())
-        .then(data => {
-            portrait_painting_list = data;
-            
-            const container = document.getElementById('discover-container');
+                const wrapper = document.createElement('div');
+                wrapper.className = 'swiper-wrapper';
 
-            // 🛠️ Ensure container is .swiper with ID
-            container.classList.add('swiper');
+                portrait_paintings.forEach(painting => {
+                    const slide = document.createElement('div');
+                    slide.className = 'discover__card swiper-slide';
+                    slide.onclick = () => openCanvas(painting.id);
 
-            // ✅ Create the required swiper-wrapper
-            const wrapper = document.createElement('div');
-            wrapper.className = 'swiper-wrapper';
-
-            // ✅ Add swiper-slide for each painting
-            data.forEach(painting => {
-                const slide = document.createElement('div');
-                slide.className = 'discover__card swiper-slide';
-                slide.onclick = () => openCanvas(painting.id);
-                slide.setAttribute('onclick', `openCanvas(${painting.id})`);
-
-                slide.innerHTML = `
+                    slide.innerHTML = `
                     <div class="image-container">
                         <img src="${painting.filename}" alt="${painting.title}" class="discover__img">
                     </div>
@@ -207,50 +194,118 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="discover__description">${painting.material}</span>
                     </div>
                 `;
+                    wrapper.appendChild(slide);
+                });
 
-                wrapper.appendChild(slide);
-            });
+                discoverContainer.appendChild(wrapper);
 
-            // ✅ Inject into container
-            container.appendChild(wrapper);
+                // Initialize Swiper
+                new Swiper(".discover__container", {
+                    effect: "coverflow",
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: "auto",
+                    loop: true,
+                    spaceBetween: 32,
+                    coverflowEffect: {
+                        rotate: 0,
+                    },
+                });
+            }
+            /* ========== FULL GALLERY SECTION (Grid) ========== */
+            const galleryContainer = document.getElementById('gallery-container');
+            if (galleryContainer) {
+                painting_list.forEach(painting => {
+                    const card = document.createElement('div');
+                    card.className = 'gallery__card';
+                    card.onclick = () => openCanvas(painting.id);
 
-            // ✅ Initialize Swiper after DOM is ready
-            new Swiper(".discover__container", {
-                effect: "coverflow",
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: "auto",
-                loop: true,
-                spaceBetween: 32,
-                coverflowEffect: {
-                    rotate: 0,
-                },
-            });
+                    card.innerHTML = `
+                    <img src="${painting.filename}" alt="${painting.title}" class="gallery__img">
+                    <div class="gallery__data">
+                        <h3 class="gallery__title">${painting.title}</h3>
+                        <span class="gallery__subtitle">${painting.material}</span>
+                    </div>
+                `;
+                    galleryContainer.appendChild(card);
+                });
+            }
+
         })
-        .catch(error => console.error('Failed to fetch discover paintings:', error));
+        .catch(error => {
+            console.error("Error loading paintings.json:", error);
+        });
 });
 
+
 /*==================== CANVAS POPUP ====================*/
+document.addEventListener("DOMContentLoaded", () => {
+    // Only generate once
+    if (!document.getElementById("canvasPopup")) {
+        const popupHTML = `
+        <!--==================== CANVAS POPUP ====================-->
+        <div id="canvasPopup" class="canvas-popup">
+            <span class="canvas-close" onclick="closeCanvas()">&times;</span>
+
+            <!-- Image -->
+            <div class="canvas-image-container">
+                <img id="canvasImage" src="" alt="">
+            </div>
+
+            <!-- Info -->
+            <div class="canvas-info-container">
+                <h1 id="canvasTitle"></h1>
+                <hr>
+
+                <div class="art-meta">
+                    <p><strong>Tác giả:</strong> Lê Tấn Đạt</p>
+                    <p><strong>Kích thước:</strong> <span id="canvasSize"></span> cm</p>
+                    <p><strong>Năm sáng tác:</strong> <span id="canvasYear"></span></p>
+                    <p><strong>Chất liệu:</strong> <span id="canvasMaterial"></span></p>
+                    <p><strong>Giá bán:</strong> <span class="price-highlight">Vui lòng liên hệ</span></p>
+                </div>
+                <hr>
+                <a href="#contact" class="button" onclick="closeCanvas()">Liên hệ ngay</a>
+            </div>
+        </div>`;
+        document.body.insertAdjacentHTML("beforeend", popupHTML);
+    }
+});
+
+/*==================== OPEN POPUP ====================*/
 function openCanvas(id) {
-    console.log("Opening canvas for ID:", id);
-    const combinedList = landscape_painting_list.concat(portrait_painting_list);
-    console.log("Combined painting list:", combinedList);
-    console.log(" landscape_painting_list list:", landscape_painting_list);
-    console.log(" portrait_painting_list list:", portrait_painting_list);
-    const painting = combinedList.find(p => p.id === id);
-    document.getElementById("canvasImage").src = painting.filename;
-    document.getElementById("canvasTitle").textContent = painting.title;
-    document.getElementById("canvasSize").textContent = painting.size;
-    document.getElementById("canvasYear").textContent = painting.year;
-    document.getElementById("canvasMaterial").textContent = painting.material;
-    document.getElementById('canvasPopup').classList.add('active');
+    try {
+        const painting = painting_list.find(p => p.id === id);
+        if (!painting) throw new Error(`Painting with id=${id} not found`);
 
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
+        const imgEl = document.getElementById("canvasImage");
+        const titleEl = document.getElementById("canvasTitle");
+        const sizeEl = document.getElementById("canvasSize");
+        const yearEl = document.getElementById("canvasYear");
+        const materialEl = document.getElementById("canvasMaterial");
+        const popupEl = document.getElementById("canvasPopup");
 
-    // Push a new state to the history stack
-    history.pushState({ canvasOpen: true }, "", window.location.href);
+        if (!imgEl || !titleEl || !sizeEl || !yearEl || !materialEl || !popupEl) {
+            throw new Error("Canvas elements are missing in DOM");
+        }
 
+        imgEl.src = painting.filename;
+        titleEl.textContent = painting.title;
+        sizeEl.textContent = painting.size || "";
+        yearEl.textContent = painting.year || "";
+        materialEl.textContent = painting.material || "";
+
+        popupEl.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        // Push state for browser back button
+        history.pushState({ canvasOpen: true }, "", window.location.href);
+
+    } catch (error) {
+        console.error("openCanvas failed:", error);
+    }
 }
+
 
 function closeCanvas() {
     document.getElementById('canvasPopup').classList.remove('active');
