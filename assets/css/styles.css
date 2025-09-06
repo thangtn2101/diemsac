@@ -25,9 +25,9 @@
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
 
   /*========== Font and typography ==========*/
-  --body-font: 'Be Vietnam Pro', sans-serif;
-  --title-font: 'Be Vietnam Pro', sans-serif;
-  --biggest-font-size: 2.5rem;
+  --body-font: 'Open Sans', sans-serif;
+  --title-font: 'Open Sans', sans-serif;
+  --biggest-font-size: 2rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
@@ -38,6 +38,8 @@
   /*========== Font weight ==========*/
   --font-medium: 500;
   --font-semi-bold: 600;
+  --font-bold: 700;
+  --font-extra-bold: 800;
 
   /*========== Margenes Bottom ==========*/
   --mb-0-25: .25rem;
@@ -307,7 +309,6 @@ input {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
@@ -390,6 +391,20 @@ input {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+}
+
+#nav-brand {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Visible when scrolled */
+#nav-brand.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .nav__logo__img {
@@ -502,6 +517,8 @@ input {
   object-position: 83%;
 }
 
+
+
 .home__container {
   position: relative;
   height: calc(100vh - var(--header-height));
@@ -509,47 +526,35 @@ input {
   row-gap: 3rem;
 }
 
+.home__data {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.home__logo {
+  width: 15%;
+  height: auto;
+}
+
 .home__data-subtitle,
 .home__data-title,
-.home__social-link,
 .home__info {
   color: var(--white-color);
 }
 
 .home__data-subtitle {
   display: block;
-  font-weight: var(--font-semi-bold);
-  margin-bottom: var(--mb-0-75);
+  font-size: var(--h2-font-size);
+  margin-bottom: var(--mb-0-25);
 }
 
 .home__data-title {
   font-size: var(--biggest-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: var(--mb-2-5);
+  font-weight: var(--font-bold);
 }
 
-.home__social {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
-}
-
-.home__social-link {
-  font-size: 1.2rem;
-  width: max-content;
-}
-
-.home__info {
-  background-color: var(--first-color);
-  display: flex;
-  padding: 1.5rem 1rem;
-  align-items: center;
-  column-gap: .5rem;
-  position: absolute;
-  right: 0;
-  bottom: 1rem;
-  width: 228px;
-}
 
 .home__info-title {
   display: block;
@@ -1035,13 +1040,18 @@ input {
 
 /* Mobile */
 @media (max-width: 768px) {
+  .home__data {
+    margin-bottom: 2rem;
+  }
+
   .canvas-popup {
     flex-direction: column;
   }
 
   .canvas-image-container {
     width: 100%;
-    height: 65%;
+    height: 55%;
+    padding: 0%;
   }
 
   .canvas-info-container {
@@ -1203,6 +1213,7 @@ input {
 
   .home__data {
     align-self: flex-end;
+    margin-bottom: 5rem;
   }
 
   .home__social {

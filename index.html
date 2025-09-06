@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/png">
 
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -22,16 +22,16 @@
 <body>
     <header class="header" id="header">
         <nav class="nav container">
-            <div class="nav__brand">
-
-                <a href="#" class="nav__logo"> <img src="assets/img/favicon.png" alt="" class="nav__logo__img">ĐIỂM
-                    SẮC</a>
+            <div class="nav__brand" id="nav-brand">
+                <a href="#" class="nav__logo">
+                    <img src="assets/img/favicon.svg" alt="" class="nav__logo__img">ĐIỂM SẮC
+                </a>
             </div>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Trang chủ</a>
+                        <a href="index.html#home" class="nav__link active-link">Trang chủ</a>
                     </li>
                     <li class="nav__item">
                         <a href="artist.html#about" class="nav__link">Họa sỹ</a>
@@ -65,12 +65,18 @@
     <main class="main">
         <!--==================== HOME ====================-->
         <section class="home" id="home">
-            <img src="assets/img/homehero.jpg" alt="" class="home__img">
+            <img src="assets/img/homehero.png" alt="" class="home__img">
 
             <div class="home__container container grid">
-                <div class="home__data">
-                    <span class="home__data-subtitle"> </span>
-                    <h1 class="home__data-title"> </h1>
+                <div class="home__data flex items-center gap-4">
+                    <!-- Logo -->
+                    <img src="assets/img/favicon.svg" alt="Điểm Sắc Logo" class="home__logo">
+
+                    <!-- Text Group -->
+                    <div class="home__brand">
+                        <h1 class="home__data-title">ĐIỂM SẮC</h1>
+                        <span class="home__data-subtitle">Gallery</span>
+                    </div>
                 </div>
 
             </div>
@@ -168,7 +174,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="ri-mail-fill"></i>
-                            <span><a href="mailto:phongtranhdiemsac@gmail.com">phongtranhdiemsac@gmail.com</a></span>
+                            <span>phongtranhdiemsac@gmail.com</span>
                         </div>
                         <div class="contact-item">
                             <i class="ri-facebook-box-fill"></i>
@@ -188,7 +194,16 @@
         <div class="footer__container container grid">
             <div class="footer__content grid">
                 <div class="footer__data">
-                    <h3 class="footer__title">Điểm sắc</h3>
+                    <div class="home__data flex items-center gap-4" style="margin-bottom: 8px;">
+                        <!-- Logo -->
+                        <img src="assets/img/favicon.svg" alt="Điểm Sắc Logo" class="home__logo">
+
+                        <!-- Text Group -->
+                        <div class="home__brand">
+                            <h1 class="footer__title" style="font-size: var(--h2-font-size);">ĐIỂM SẮC</h1>
+                        </div>
+                    </div>
+
                     <p>
                         <a href="https://www.google.com/maps/search/?api=1&query=198/8+Nguyễn+Văn+Khối,+Phường+9,+Quận+Gò+Vấp,+TP.+HCM"
                             target="_blank" rel="noopener noreferrer" class="footer__description">
@@ -201,10 +216,11 @@
                 <div class="footer__data">
                     <h3 class="footer__subtitle">Menu</h3>
                     <ul>
-                        <li class="footer__item"><a href="#about" class="footer__link">Họa Sỹ</a></li>
-                        <li class="footer__item"><a href="#discover" class="footer__link">Tác phẩm</a></li>
+                        <li class="footer__item"><a href="artist.html#about" class="footer__link">Họa Sỹ</a></li>
+                        <li class="footer__item"><a href="gallery.html#discover" class="footer__link">Tác phẩm</a></li>
                         <li class="footer__item"><a href="#contact" class="footer__link">Liên hệ</a></li>
-                        <li class="footer__item"><a href="policypage.html" class="footer__link">Chính sách</a></li>
+                        <li class="footer__item"><a href="policypage.html#policy" class="footer__link">Chính sách</a>
+                        </li>
 
                     </ul>
                 </div>
