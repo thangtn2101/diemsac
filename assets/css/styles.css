@@ -417,6 +417,7 @@ input {
   vertical-align: middle;
 }
 
+
 .nav__logo,
 .nav__toggle {
   color: var(--white-color);
@@ -538,10 +539,15 @@ input {
   height: auto;
 }
 
+.home__data .home__logo {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 1));
+}
+
 .home__data-subtitle,
 .home__data-title,
 .home__info {
   color: var(--white-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .home__data-subtitle {
@@ -592,6 +598,22 @@ input {
 
 .button:hover {
   background-color: var(--first-color-alt);
+}
+
+.button--secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--first-color);
+  padding: 1rem 2rem;
+  font-weight: var(--font-semi-bold);
+  border: 1px solid var(--first-color);
+  transition: .3s;
+  cursor: pointer;
+}
+
+.button--secondary:hover {
+  background-color: var(--first-color-alt);
+  color: var(--white-color);
 }
 
 .button--flex {
@@ -982,6 +1004,59 @@ input {
   color: var(--text-color);
 }
 
+/*=============== Artis Page ===============*/
+.bao {
+  position: relative;
+  min-height: 200px;
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bao .left_side {
+  position: relative;
+  background: var(--first-color-second);
+  padding: 40px;
+  opacity: 0;
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.bao .right_side {
+  position: relative;
+  padding: 40px;
+  border: var(--input-color) 1px solid;
+  opacity: 0;
+  animation: fadeInRight 1s ease forwards;
+  animation-delay: 0.3s;
+}
+/* Keyframes for appear animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+
 /*========== SCROLL UP ==========*/
 .scrollup {
   position: fixed;
@@ -1117,6 +1192,27 @@ input {
     transform: translateY(0);
   }
 
+  /* Artist Page */
+  .bao {
+    grid-template-columns: 1fr;
+    /* Stack vertically */
+  }
+
+  .bao .left_side,
+  .bao .right_side {
+    padding: 20px;
+    /* Less padding on mobile */
+  }
+
+  .artist-portrait {
+    max-width: 100%;
+    /* Full width image on mobile */
+  }
+
+  .artist-bio {
+    text-align: left;
+    /* Easier to read on mobile */
+  }
 }
 
 /* For medium devices */
