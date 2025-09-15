@@ -1054,6 +1054,21 @@ input {
   }
 }
 
+    .card-info li {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      line-height: 1.4;
+    }
+
+    .card-info li::before {
+      content: '•';
+      color: #009688;
+      font-size: 1.5em;
+      margin-right: 10px;
+      display: inline-block;
+    }
 
 
 
