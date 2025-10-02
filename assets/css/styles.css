@@ -632,10 +632,6 @@ input {
 }
 
 /*=============== ABOUT ===============*/
-.about__data {
-  text-align: center;
-}
-
 .about__container {
   row-gap: 2.5rem;
 }
@@ -1140,13 +1136,13 @@ input {
 
   .canvas-image-container {
     width: 100%;
-    height: 55%;
+    height: 60%;
     padding: 0%;
   }
 
   .canvas-info-container {
     width: 100%;
-    height: 35%;
+    height: 40%;
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.9rem;
