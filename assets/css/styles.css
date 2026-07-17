@@ -542,48 +542,6 @@ main {
   color: var(--title-color);
 }
 
-/*=============== FORM SUBMISSION MESSAGES ===============*/
-.form-message {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    animation: reveal-zoom 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-.form-message i {
-    font-size: 4.5rem;
-    margin-bottom: 1rem;
-}
-
-.success-message i {
-    color: #4CAF50; /* Màu xanh lá thành công */
-}
-
-.error-message i {
-    color: #F44336; /* Màu đỏ thất bại */
-}
-
-.form-message p {
-    font-size: 1.1rem;
-    color: var(--title-color);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-/*=============== FORM VALIDATION ===============*/
-.error-text {
-    color: #F44336;
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-    display: none; /* Ẩn mặc định */
-}
-
-.input-error {
-    border-color: #F44336 !important;
-    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1) !important;
-}
 
 /*=============== CONTACT & POLICY ===============*/
 .contact-split {
@@ -659,6 +617,50 @@ main {
   gap: 1.5rem;
 }
 
+/*=============== FORM SUBMISSION MESSAGES ===============*/
+.form-message {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    animation: reveal-zoom 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.form-message i {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+.success-message i {
+    color: #4CAF50; /* Màu xanh lá thành công */
+}
+
+.error-message i {
+    color: #F44336; /* Màu đỏ thất bại */
+}
+
+.form-message p {
+    font-size: 1.1rem;
+    color: var(--title-color);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/*=============== FORM VALIDATION ===============*/
+.error-text {
+    color: #F44336;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: none; /* Ẩn mặc định */
+}
+
+.input-error {
+    border-color: #F44336 !important;
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1) !important;
+}
+
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -695,6 +697,7 @@ main {
   resize: vertical;
   min-height: 150px;
 }
+
 
 .policy-container {
   max-width: 900px;
@@ -1289,5 +1292,49 @@ main {
 @media screen and (min-width: 769px) {
   .nav__toggle {
     display: none !important;
+  }
+}
+
+/*=============== EXTRA SMALL DEVICES (Under 400px) ===============*/
+@media screen and (max-width: 400px) {
+  /* Reduce container padding to give content more room */
+  .contact-info,
+  .contact-form-container {
+    padding: 2.5rem 1.25rem;
+  }
+
+  /* Scale down the title */
+  .contact-info h2 {
+    font-size: 2rem;
+  }
+
+  /* Reduce gap between icons and text */
+  .contact-item {
+    gap: 0.85rem;
+  }
+
+  /* Scale down icons */
+  .contact-item i {
+    font-size: 1.25rem;
+  }
+
+  /* Scale down text and force long text (like emails) to wrap to the next line */
+  .contact-item h4 {
+    font-size: 1.1rem;
+  }
+
+  .contact-item p,
+  .contact-item a {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+
+  /* Reduce padding and font size inside input fields to prevent overflow */
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
 }
