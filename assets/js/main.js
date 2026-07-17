@@ -55,13 +55,17 @@ function openCanvas(id) {
 
     const popupEl = document.getElementById("canvasPopup");
     popupEl.classList.add("active");
-    document.body.style.overflow = "hidden";
+    
+    document.body.classList.add("no-scroll");
+    document.documentElement.classList.add("no-scroll");
 }
 
 function closeCanvas() {
     const popupEl = document.getElementById("canvasPopup");
     popupEl.classList.remove("active");
-    document.body.style.overflow = "";
+
+    document.body.classList.remove("no-scroll");
+    document.documentElement.classList.remove("no-scroll");
 }
 
 document.addEventListener('keydown', function(e) {
