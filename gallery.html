@@ -1,355 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/png">
-
-  <!--=============== Social Media Preview ===============-->
-  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
-  <meta property="og:title" content="ĐIỂM SẮC">
-  <meta property="og:description" content="Phòng tranh ĐIỂM SẮC – Nơi hội tụ nghệ thuật và sáng tạo.">
-  <meta property="og:url" content="https://diemsac.com.vn/">
-  <meta property="og:image" content="https://diemsac.com.vn/assets/img/cover.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ĐIỂM SẮC">
-  <meta name="twitter:description" content="Phòng tranh ĐIỂM SẮC – Nơi hội tụ nghệ thuật và sáng tạo.">
-  <meta name="twitter:image" content="https://diemsac.com.vn/assets/img/cover.png">
-
-  <!--=============== REMIXICONS ===============-->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-  <!--=============== SWIPER CSS ===============-->
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
-  <!--=============== CSS ===============-->
+  <title>ĐIỂM SẮC - Tác phẩm</title>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <title>ĐIỂM SẮC</title>
-  <style>
-    /* Gallery Section */
-    .gallery__container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .gallery__card {
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      cursor: pointer;
-    }
-
-    .gallery__card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .gallery__img {
-      width: 100%;
-      height: 250px;
-      /* Cố định chiều cao để các thẻ đồng đều hơn */
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery__data {
-      padding: 1rem;
-      background-color: var(--container-color);
-      text-align: center;
-    }
-
-    .gallery__title {
-      font-size: var(--h3-font-size);
-      color: var(--title-color);
-      margin-bottom: 0.25rem;
-    }
-
-    .gallery__subtitle {
-      font-size: var(--small-font-size);
-      color: var(--text-color-light);
-    }
-
-    /* Hiệu ứng trượt thông tin khi di chuột */
-    @media screen and (min-width: 768px) {
-      .gallery__card {
-        position: relative;
-      }
-
-      .gallery__data {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        transform: translateY(100%);
-        transition: transform 0.3s ease-in-out;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-        color: #fff;
-        text-align: left;
-        padding: 1rem 1rem 1rem 1rem;
-      }
-
-      .gallery__card:hover .gallery__data {
-        transform: translateY(0);
-      }
-
-      .gallery__subtitle,
-      .gallery__title {
-        color: #fff;
-      }
-
-      .gallery__img {
-        height: 350px;
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .gallery__card {
-      opacity: 0;
-      /* start hidden */
-      animation: fadeUp 1s ease forwards;
-    }
-
-    /* Optional: stagger animation for each card */
-    .gallery__card:nth-child(1) {
-      animation-delay: 0.2s;
-    }
-
-    .gallery__card:nth-child(2) {
-      animation-delay: 0.4s;
-    }
-
-    .gallery__card:nth-child(3) {
-      animation-delay: 0.5s;
-    }
-
-    .gallery__card:nth-child(4) {
-      animation-delay: 0.6s;
-    }
-
-    .gallery__card:nth-child(5) {
-      animation-delay: 0.7s;
-    }
-
-    .gallery__card:nth-child(6) {
-      animation-delay: 0.8s;
-    }
-
-    .gallery__card:nth-child(7) {
-      animation-delay: 0.9s;
-    }
-
-    .gallery__card:nth-child(8) {
-      animation-delay: 1s;
-    }
-
-    .gallery__card:nth-child(9) {
-      animation-delay: 1.1s;
-    }
-
-    .gallery__card:nth-child(10) {
-      animation-delay: 1.2s;
-    }
-
-    .gallery__card:nth-child(11) {
-      animation-delay: 1.3s;
-    }
-
-    .gallery__card:nth-child(12) {
-      animation-delay: 1.4s;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
-  <!--==================== HEADER ====================-->
-  <header class="header" id="header">
-    <nav class="nav container">
-      <div class="nav__brand" id="nav-brand">
-        <a href="index.html#home" class="nav__logo">
-          <img src="assets/img/favicon.svg" alt="" class="nav__logo__img">ĐIỂM SẮC
-        </a>
-      </div>
-
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="index.html#home" class="nav__link">Trang chủ</a>
-          </li>
-          <li class="nav__item">
-            <a href="artist.html#about" class="nav__link">Họa sỹ</a>
-          </li>
-          <li class="nav__item">
-            <a href="gallery.html#discover" class="nav__link">Tác phẩm</a>
-          </li>
-          <li class="nav__item">
-            <a href="policypage.html#policy" class="nav__link">Chính sách</a>
-          </li>
-          <li class="nav__item">
-            <a href="#contact" class="nav__link">Liên hệ</a>
-          </li>
-        </ul>
-
-        <div class="nav__dark">
-          <!-- Theme change button -->
-          <span class="change-theme-name">Dark mode</span>
-          <i class="ri-moon-line change-theme" id="theme-button"></i>
-        </div>
-
-        <i class="ri-close-line nav__close" id="nav-close"></i>
-      </div>
-
-      <div class="nav__toggle" id="nav-toggle">
-        <i class="ri-function-line"></i>
-      </div>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__brand">
+        <img src="assets/img/favicon.svg" alt="Logo" class="nav__logo__img"> ĐIỂM SẮC
+      </a>
+      <ul class="nav__list">
+        <li><a href="index.html" class="nav__link">Trang chủ</a></li>
+        <li><a href="artist.html" class="nav__link">Họa sỹ</a></li>
+        <li><a href="gallery.html" class="nav__link active-link">Tác phẩm</a></li>
+        <li><a href="policypage.html" class="nav__link">Chính sách</a></li>
+        <li><a href="contact.html" class="nav__link">Liên hệ</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="main">
-    <!--==================== HOME ====================-->
-    <section class="home">
-      <img src="assets/img/homehero.png" alt="" class="home__img">
-
-      <div class="home__container container grid">
-        <div class="home__data flex items-center gap-4">
-          <!-- Logo -->
-          <img src="assets/img/favicon.svg" alt="Điểm Sắc Logo" class="home__logo">
-
-          <!-- Text Group -->
-          <div class="home__brand">
-            <span class="home__data-subtitle">Phòng tranh</span>
-            <h1 class="home__data-title">ĐIỂM SẮC</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--==================== GALLERY ====================-->
-    <section class="about section" id="discover">
-      <h2 class="section__title">TÁC PHẨM</h2>
-
-      <div class="gallery__container container grid" id="gallery-container">
-        <!-- Gallery cards will be dynamically inserted here by JavaScript -->
-      </div>
-
-    </section>
-
-    <!--==================== SUBSCRIBE ====================-->
-    <section class="subscribe section" id="contact">
-      <div class="subscribe__bg">
-        <div class="subscribe__container container">
-          <h2 class="section__title subscribe__title">Liên hệ ngay</h2>
-          <div class="contact-card">
-            <div class="contact-item">
-              <i class="ri-phone-fill"></i>
-              <span>0985053560</span>
-            </div>
-            <div class="contact-item">
-              <i class="ri-mail-fill"></i>
-              <span>phongtranhdiemsac@gmail.com</span>
-            </div>
-            <div class="contact-item">
-              <i class="ri-facebook-box-fill"></i>
-              <span><a href="https://www.facebook.com/profile.php?id=100063675285643" target="_blank">Tranh sơn dầu Điểm
-                  Sắc</a></span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <main class="page-content bg-dark">
+    <section class="container-fluid">
+      <h1 class="section__title light reveal-up">Bộ Sưu Tập</h1>
+      <div class="gallery-grid" id="full-gallery"></div>
     </section>
   </main>
 
-  <!--==================== FOOTER ====================-->
-  <footer class="footer section">
-    <div class="footer__container container grid">
-      <div class="footer__content grid">
-        <div class="footer__data">
-          <div class="flex items-center gap-4" style="margin-bottom: 8px;">
-            <!-- Logo -->
-            <img src="assets/img/favicon.svg" alt="Điểm Sắc Logo" class="home__logo">
-
-            <!-- Text Group -->
-            <div class="home__brand">
-              <h1 class="footer__title" style="font-size: var(--h2-font-size);">ĐIỂM SẮC</h1>
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand reveal-up">
+          <div class="footer-logo-wrap">
+            <img src="assets/img/favicon.svg" alt="Điểm Sắc Logo">
+            <h2 class="footer-title">ĐIỂM SẮC</h2>
           </div>
-
-          <p>
-            <a href="https://www.google.com/maps/search/?api=1&query=198/8+Nguyễn+Văn+Khối,+Phường+9,+Quận+Gò+Vấp,+TP.+HCM"
-              target="_blank" rel="noopener noreferrer" class="footer__description">
-              <i class="ri-map-pin-line"></i>
-              198/8 Nguyễn Văn Khối, <br>Phường 9, Gò Vấp, Hồ chí Minh
-            </a>
-          </p>
+          <a href="https://www.google.com/maps/search/?api=1&query=198/8+Nguyễn+Văn+Khối,+Phường+9,+Quận+Gò+Vấp,+TP.+HCM"
+            target="_blank" class="footer-address">
+            <i class="ri-map-pin-2-fill"></i>
+            <span>198/8 Nguyễn Văn Khối,<br>Phường 9, Gò Vấp, Hồ Chí Minh</span>
+          </a>
         </div>
 
-        <div class="footer__data">
-          <h3 class="footer__subtitle">Menu</h3>
-          <ul>
-            <li class="footer__item"><a href="artist.html#about" class="footer__link">Họa Sỹ</a></li>
-            <li class="footer__item"><a href="gallery.html#discover" class="footer__link">Tác phẩm</a></li>
-            <li class="footer__item"><a href="#contact" class="footer__link">Liên hệ</a></li>
-            <li class="footer__item"><a href="policypage.html#policy" class="footer__link">Chính sách</a>
-            </li>
-
-          </ul>
+        <div class="footer-col reveal-up delay-100">
+          <h3>Menu</h3>
+          <div class="footer-links">
+            <a href="artist.html">Họa Sỹ</a>
+            <a href="gallery.html">Tác Phẩm</a>
+            <a href="contact.html">Liên Hệ</a>
+            <a href="policypage.html">Chính Sách</a>
+          </div>
         </div>
 
-        <div class="footer__data">
-          <h3 class="footer__subtitle">Thông tin thêm</h3>
-          <ul>
-            <li class="footer__item">
-              <a href="https://www.facebook.com/dat.le.tan.595046" class="footer__link" target="_blank">Lê
-                Tấn Đạt</a>
-            </li>
-            <li class="footer__item">
-              <a href="https://www.facebook.com/tran.thi.kim.lien.975895" class="footer__link" target="_blank">Trần Thị
-                Kim Liên</a>
-            </li>
-          </ul>
+        <div class="footer-col reveal-up delay-200">
+          <h3>Kết Nối</h3>
+          <div class="footer-links">
+            <a href="https://www.facebook.com/dat.le.tan.595046" target="_blank">Lê Tấn Đạt (Facebook)</a>
+            <a href="https://www.facebook.com/tran.thi.kim.lien.975895" target="_blank">Trần Thị Kim Liên
+              (Facebook)</a>
+            <a href="https://www.facebook.com/profile.php?id=100063675285643" target="_blank">Fanpage Điểm
+              Sắc</a>
+          </div>
         </div>
       </div>
 
-      <div class="footer__rights">
-        <p class="footer__copy">&#169; 2025 TNT. All rigths reserved.</p>
-        <p class="footer__copy"> Liên hệ để làm website: <a href="https://www.facebook.com/ngocthang.tran.5855"
-            target="_blank" class="footer__link">Trần Ngọc Thắng</a>
-        </p>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ĐIỂM SẮC. All rights reserved.</p>
+        <p>Website được phát triển bởi <a href="https://www.facebook.com/profile.php?id=61589666215709"
+            target="_blank">tnt.</a></p>
       </div>
     </div>
   </footer>
 
-  <!--========== SCROLL UP ==========-->
-  <a href="#" class="scrollup" id="scroll-up">
-    <i class="ri-arrow-up-line scrollup__icon"></i>
-  </a>
 
-  <!--=============== SCROLL REVEAL===============-->
-  <script src="assets/js/scrollreveal.min.js"></script>
+  <div id="canvasPopup" class="canvas-popup">
+    <div class="canvas-close" onclick="closeCanvas()"><i class="ri-close-line"></i></div>
+    <div class="canvas-image-container"><img id="canvasImage" src="" alt=""></div>
+    <div class="canvas-info-container">
+      <h1 id="canvasTitle">Tên tranh</h1>
+      <p><strong>Tác giả:</strong> <span id="canvasAuthor">Lê Tấn Đạt</span></p>
+      <p><strong>Kích thước:</strong> <span id="canvasSize"></span> cm</p>
+      <p><strong>Năm sáng tác:</strong> <span id="canvasYear"></span></p>
+      <p><strong>Chất liệu:</strong> <span id="canvasMaterial"></span></p>
+      <p><strong>Giá bán:</strong> <span class="price-highlight">Vui lòng liên hệ</span></p>
+      <a href="contact.html" class="btn-contact-popup" onclick="closeCanvas()">Liên hệ ngay</a>
+    </div>
+  </div>
 
-  <!--=============== SWIPER JS ===============-->
-  <script src="assets/js/swiper-bundle.min.js"></script>
-
-  <!--=============== MAIN JS ===============-->
   <script src="assets/js/main.js"></script>
 </body>
 

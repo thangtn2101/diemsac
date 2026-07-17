@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/png">
+  <title>ĐIỂM SẮC - Liên Hệ</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "FRDPJnoDQPA7Q2tEy",
+      });
+    })();
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="nav__brand">
+        <img src="assets/img/favicon.svg" alt="Logo" class="nav__logo__img"> ĐIỂM SẮC
+      </a>
+      <ul class="nav__list">
+        <li><a href="index.html" class="nav__link">Trang chủ</a></li>
+        <li><a href="artist.html" class="nav__link">Họa sỹ</a></li>
+        <li><a href="gallery.html" class="nav__link">Tác phẩm</a></li>
+        <li><a href="policypage.html" class="nav__link">Chính sách</a></li>
+        <li><a href="contact.html" class="nav__link active-link">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-content bg-alt">
+    <section class="container">
+      <h1 class="section__title reveal-up">Liên Hệ Với Chúng Tôi</h1>
+
+      <div class="contact-split reveal-up delay-100">
+        <div class="contact-info">
+          <h2>Kết nối</h2>
+          <p class="desc">Bạn quan tâm đến các tác phẩm nghệ thuật hoặc cần tư vấn vẽ tranh theo nhu cầu?</p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="ri-phone-fill"></i>
+              <div>
+                <h4>Điện thoại</h4>
+                <p>0985 053 560</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="ri-mail-fill"></i>
+              <div>
+                <h4>Email</h4>
+                <p>phongtranhdiemsac@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="ri-map-pin-fill"></i>
+              <div>
+                <h4>Địa chỉ</h4>
+                <p>198/8 Nguyễn Văn Khối,<br>Phường 9, Quận Gò Vấp, TP.HCM</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="ri-facebook-circle-fill"></i>
+              <div>
+                <h4>Mạng xã hội</h4>
+                <a href="https://www.facebook.com/profile.php?id=100063675285643" target="_blank">Tranh sơn dầu Điểm
+                  Sắc</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <!-- Form liên hệ ban đầu -->
+          <form onsubmit="sendEmail(event)" class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Họ và tên</label>
+              <input type="text" id="name" placeholder="Nhập tên của bạn" required="">
+            </div>
+            <div class="form-group">
+              <label for="email">Email / Số điện thoại</label>
+              <input type="text" id="email" placeholder="Nhập email hoặc SĐT" required="">
+              <span class="error-text" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Lời nhắn</label>
+              <textarea id="message" placeholder="Bạn đang quan tâm về..." required=""></textarea>
+            </div>
+            <button type="submit" class="btn-primary" id="submitBtn" style="margin-top: 1rem;">Gửi Tin
+              Nhắn</button>
+          </form>
+
+          <!-- Khối thông báo thành công (Ẩn mặc định) -->
+          <div class="form-message success-message" id="successMessage" style="display: none;">
+            <i class="ri-checkbox-circle-fill"></i>
+            <p>
+              <strong>
+                Chúng tôi đã nhận được tin nhắn của bạn!
+              </strong>
+              <br>
+              Chúng tôi sẽ liên hệ đến bạn sớm nhất có
+              thể.<br>Xin chân thành cảm ơn!
+            </p>
+          </div>
+
+          <!-- Khối thông báo thất bại (Ẩn mặc định) -->
+          <div class="form-message error-message" id="errorMessage" style="display: none;">
+            <i class="ri-close-circle-fill"></i>
+            <p>
+              <strong>
+                Không thể gửi tin nhắn!
+              </strong> <br> Hãy liên hệ bằng Số điện thoại, Email,
+              hoặc gặp chúng tôi trực tiếp tại phòng tranh.<br>Xin lỗi bạn vì sự bất tiện này.
+            </p>
+            <button type="button" class="btn-primary" onclick="resetFormView()">Thử lại</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand reveal-up">
+          <div class="footer-logo-wrap">
+            <img src="assets/img/favicon.svg" alt="Điểm Sắc Logo">
+            <h2 class="footer-title">ĐIỂM SẮC</h2>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=198/8+Nguyễn+Văn+Khối,+Phường+9,+Quận+Gò+Vấp,+TP.+HCM"
+            target="_blank" class="footer-address">
+            <i class="ri-map-pin-2-fill"></i>
+            <span>198/8 Nguyễn Văn Khối,<br>Phường 9, Gò Vấp, Hồ Chí Minh</span>
+          </a>
+        </div>
+
+        <div class="footer-col reveal-up delay-100">
+          <h3>Menu</h3>
+          <div class="footer-links">
+            <a href="artist.html">Họa Sỹ</a>
+            <a href="gallery.html">Tác Phẩm</a>
+            <a href="contact.html">Liên Hệ</a>
+            <a href="policypage.html">Chính Sách</a>
+          </div>
+        </div>
+
+        <div class="footer-col reveal-up delay-200">
+          <h3>Kết Nối</h3>
+          <div class="footer-links">
+            <a href="https://www.facebook.com/dat.le.tan.595046" target="_blank">Lê Tấn Đạt (Facebook)</a>
+            <a href="https://www.facebook.com/tran.thi.kim.lien.975895" target="_blank">Trần Thị Kim Liên
+              (Facebook)</a>
+            <a href="https://www.facebook.com/profile.php?id=100063675285643" target="_blank">Fanpage Điểm
+              Sắc</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ĐIỂM SẮC. All rights reserved.</p>
+        <p>Website được phát triển bởi <a href="https://www.facebook.com/profile.php?id=61589666215709"
+            target="_blank">tnt.</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
