@@ -1201,7 +1201,6 @@ html.no-scroll {
 
   .canvas-image-container {
     flex: none;
-    height: 50vh;
     padding: 1rem;
   }
 
