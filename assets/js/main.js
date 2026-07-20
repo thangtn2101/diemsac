@@ -43,6 +43,8 @@ function renderGallery(paintings, container) {
     });
 }
 
+/*=============== CANVAS LOGIC ===============*/
+
 function openCanvas(id) {
     const painting = painting_list.find(p => p.id === id);
     if (!painting) return;
@@ -62,14 +64,34 @@ function openCanvas(id) {
 
 function closeCanvas() {
     const popupEl = document.getElementById("canvasPopup");
-    popupEl.classList.remove("active");
-
-    document.body.classList.remove("no-scroll");
-    document.documentElement.classList.remove("no-scroll");
+    
+    // Nếu đang ở chế độ xem toàn màn hình (mobile)
+    if (popupEl.classList.contains("fullscreen-mode")) {
+        // Chỉ thoát chế độ fullscreen, trở về canvas bình thường
+        popupEl.classList.remove("fullscreen-mode");
+    } else {
+        // Nếu ở màn hình canvas bình thường thì đóng hẳn popup
+        popupEl.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+        document.documentElement.classList.remove("no-scroll");
+    }
 }
 
 document.addEventListener('keydown', function(e) {
     if (e.key === "Escape") closeCanvas();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const imageContainer = document.querySelector('.canvas-image-container');
+    if (imageContainer) {
+        imageContainer.addEventListener('click', () => {
+            // Chỉ áp dụng chức năng này trên màn hình điện thoại
+            if (window.innerWidth <= 768) {
+                const popupEl = document.getElementById('canvasPopup');
+                popupEl.classList.toggle('fullscreen-mode');
+            }
+        });
+    }
 });
 
 function initScrollReveal() {
@@ -90,6 +112,8 @@ function initScrollReveal() {
     revealElements.forEach(el => observer.observe(el));
 }
 
+
+/*=============== CONTACT FORM LOGIC ===============*/
 // Mail sending function for Contact Page
 // Hàm kiểm tra định dạng Email hoặc Số điện thoại
 function validateEmailOrPhone(value) {
@@ -178,13 +202,13 @@ function sendEmail(event) {
         console.log("FAILED...", error);
     });
 }
+
 // Hàm để nút "Thử lại" hoạt động
 function resetFormView() {
     // Ẩn thông báo lỗi, hiện lại form
     document.getElementById("errorMessage").style.display = "none";
     document.getElementById("contactForm").style.display = "flex";
 }
-
 
 /*=============== MOBILE MENU TOGGLE ===============*/
 const navToggle = document.createElement('div');

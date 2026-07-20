@@ -543,13 +543,13 @@ main {
 }
 
 /*=============== LOCK BACKGROUND SCROLL ===============*/
-body.no-scroll, 
+body.no-scroll,
 html.no-scroll {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 .canvas-popup {
-    overscroll-behavior: contain; 
+  overscroll-behavior: contain;
 }
 
 
@@ -629,45 +629,48 @@ html.no-scroll {
 
 /*=============== FORM SUBMISSION MESSAGES ===============*/
 .form-message {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    animation: reveal-zoom 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  animation: reveal-zoom 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .form-message i {
-    font-size: 4.5rem;
-    margin-bottom: 1rem;
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
 }
 
 .success-message i {
-    color: #4CAF50; /* Màu xanh lá thành công */
+  color: #4CAF50;
+  /* Màu xanh lá thành công */
 }
 
 .error-message i {
-    color: #F44336; /* Màu đỏ thất bại */
+  color: #F44336;
+  /* Màu đỏ thất bại */
 }
 
 .form-message p {
-    font-size: 1.1rem;
-    color: var(--title-color);
-    margin-bottom: 2rem;
-    line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--title-color);
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 /*=============== FORM VALIDATION ===============*/
 .error-text {
-    color: #F44336;
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-    display: none; /* Ẩn mặc định */
+  color: #F44336;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: none;
+  /* Ẩn mặc định */
 }
 
 .input-error {
-    border-color: #F44336 !important;
-    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1) !important;
+  border-color: #F44336 !important;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1) !important;
 }
 
 
@@ -856,66 +859,6 @@ html.no-scroll {
 
 .footer-bottom a:hover {
   text-decoration: underline;
-}
-
-/*=============== MOBILE MENU ===============*/
-@media screen and (max-width: 768px) {
-  .nav__toggle {
-    display: block;
-    z-index: 1001;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  .nav__list {
-    position: fixed;
-    top: var(--header-height);
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - var(--header-height));
-    background: #FFF;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    transition: 0.4s;
-    z-index: 999;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav__list.show-menu {
-    left: 0;
-    display: flex !important;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .nav__link {
-    font-size: 1.2rem;
-  }
-
-
-  .contact-split {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-info {
-    padding: 3rem 2rem;
-  }
-
-  .contact-form-container {
-    padding: 3rem 2rem;
-  }
-
-  .contact-item i {
-    font-size: 1.5rem;
-  }
-}
-
-/* Fix navbar edge padding */
-.nav {
-  padding: 0 2rem;
 }
 
 /*=============== ANIMATION CLASSES ===============*/
@@ -1151,18 +1094,46 @@ html.no-scroll {
 }
 
 @media screen and (max-width: 768px) {
-  .nav {
-    padding: 0 1.5rem;
+
+  /* HOME PAGE - INDEX PAGE MOBILE RESPONSIVE */
+  /* Mobile Nav Responsive */
+  .nav__toggle {
+    display: block;
+    z-index: 1001;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 
   .nav__list {
-    display: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 100%;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: #FFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: 0.4s;
+    z-index: 999;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
 
+  .nav__list.show-menu {
+    left: 0;
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Mobile Hero Responsive */
   .hero__title {
     font-size: 3rem;
   }
 
+  /* Mobile Artist Responsive */
   .artist-split {
     grid-template-columns: 1fr;
   }
@@ -1172,6 +1143,7 @@ html.no-scroll {
     height: auto;
   }
 
+  /* Mobile contact Responsive */
   .contact-split {
     grid-template-columns: 1fr;
   }
@@ -1184,6 +1156,11 @@ html.no-scroll {
     padding: 3rem 2rem;
   }
 
+  .contact-item i {
+    font-size: 1.5rem;
+  }
+
+  /* Mobile footer Responsive */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1202,6 +1179,7 @@ html.no-scroll {
   .canvas-image-container {
     flex: none;
     padding: 1rem;
+    cursor: pointer;
   }
 
   .canvas-info-container {
@@ -1219,7 +1197,29 @@ html.no-scroll {
     font-size: 2rem;
   }
 
-  /* Mobile Responsive for Artist Redesign */
+  .canvas-popup.fullscreen-mode {
+    background: #000000 !important;
+  }
+
+  .canvas-popup.fullscreen-mode .canvas-info-container {
+    display: none !important;
+  }
+
+  .canvas-popup.fullscreen-mode .canvas-image-container {
+    height: 100vh !important;
+    padding: 0 !important;
+  }
+
+  .canvas-popup.fullscreen-mode .canvas-image-container img {
+    max-height: 100vh;
+    width: 100vw;
+    object-fit: contain;
+    box-shadow: none;
+  }
+
+
+  /* Artist PAGE MOBILE RESPONSIVE */
+  /* Mobile Responsive for Artist*/
   .artist-page-hero {
     background: linear-gradient(to top, rgba(18, 20, 24, 0.95) 0%, rgba(18, 20, 24, 0.6) 100%), url('../img/us.jpeg') center/cover no-repeat;
     align-items: flex-end;
@@ -1303,6 +1303,7 @@ html.no-scroll {
 
 /*=============== EXTRA SMALL DEVICES (Under 400px) ===============*/
 @media screen and (max-width: 400px) {
+
   /* Reduce container padding to give content more room */
   .contact-info,
   .contact-form-container {
